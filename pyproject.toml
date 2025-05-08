@@ -1,0 +1,32 @@
+[project]
+name = "coursework"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "dgl==2.2.1",
+    "gensim==4.3.2",
+    "matplotlib>=3.10.1",
+    "networkx>=3.4.2",
+    "node2vec>=0.4.8",
+    "numpy==1.26.0",
+    "pandas>=2.2.3",
+    "persim>=0.3.8",
+    "phat>=1.6.0.post2",
+    "pip>=25.0.1",
+    "scikit-learn>=1.3.0",
+    "scipy==1.13.0",
+    "setuptools>=76.1.0",
+    "torch>=2.6.0",
+    "torch-geometric>=2.6.1",
+    "tqdm>=4.67.1",
+    "xgboost>=3.0.0",
+]
+
+[tool.uv]
+find-links = ["https://data.dgl.ai/wheels/repo.html"]
+
+[tool.uv.sources]
+phat = { git = "https://github.com/sashkent3/phat" }
+
