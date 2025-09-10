@@ -176,7 +176,8 @@ For questions or collaborations, feel free to reach out:
 
 - **Author**: Sokolov Anton  
 - **Email**: [Your Email]  
-- **GitHub**: [antonsoko157](https://github.com/antonsoko157)
+- **GitHub**: [antonsokol57](https://github.com/antonsokol57
+)
 
 ---
 
