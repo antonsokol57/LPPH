@@ -1,9 +1,9 @@
-## Local Persistent Path Homology (PPH) for Link Prediction
+## Local Persistent Path Homology (LPPH) for Link Prediction
 
 ## Overview
 This repository implements Local Persistent Path Homology (PPH) methods for link prediction in directed graphs. The project contains two main components:
-1. **PPHboost.py** - XGBoost classifier using PPH features
-2. **modelsPPH.ipynb** - GNN-based models (DirGCN, DirSage, DirGAT) with PPH feature integration
+1. **LPPHboost.py** - XGBoost classifier using LPPH features
+2. **modelsPPH.ipynb** - GNN-based models (DirGCN, DirSage, DirGAT) with LPPH feature integration
 
 ## Key Features
 - Computes persistent homology features for edges in directed graphs
