@@ -4,7 +4,6 @@ This repository contains the official Python implementation of **Local Persisten
 
 > **Enhancing Machine Learning Algorithms on Directed Graphs Using Persistent Path Homology**  
 > Sokolov Anton  
-> Supervisor: Cand. Sc. Viktor A. Zamaraev
 
 LPPH leverages **Persistent Path Homology (PPH)** to capture multi-scale directional topological features around graph edges. These features are transformed into fixed-dimensional vectors using **persistence images**, making them suitable for machine learning models.
 
