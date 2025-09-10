@@ -1,6 +1,6 @@
 # Local Persistent Path Homology (LPPH) for Directed Link Prediction
 
-This repository contains the official Python implementation of **Local Persistent Path Homology (LPPH)**, a novel topological feature vector designed for directed link prediction in graphs. The method is introduced in the thesis:
+This repository contains the official Python implementation of **Local Persistent Path Homology (LPPH)**, a novel topological feature vector designed for directed link prediction in graphs. The method is introduced in the thesis: 
 
 > **Enhancing Machine Learning Algorithms on Directed Graphs Using Persistent Path Homology**  
 > Sokolov Anton  
