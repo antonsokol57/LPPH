@@ -34,16 +34,22 @@ LPPH is a topological feature extraction method that:
 
 ### Dependencies
 
-- Python 3.8+
-- `numpy`
-- `networkx`
-- `scikit-learn`
-- `xgboost`
-- `torch` (for GNN models)
-- `torch_geometric` (for GNN layers)
-- `phat` (for persistent homology computation)
-- `persim` (for persistence images)
-- `tqdm`
+- python = ">=3.10,<3.13"
+- `dgl = "2.2.1"`
+- `gensim = "4.3.2"`
+- `matplotlib = ">=3.10.1"`
+- `networkx = ">=3.4.2"`
+- `node2vec = ">=0.4.8"`
+- `numpy = "1.26.0"`
+- `pandas = ">=2.2.3"`
+- `persim = ">=0.3.8"`
+- `phat = {git = "https://github.com/sashkent3/phat"}`
+- `scikit-learn = ">=1.3.0"`
+- `scipy = "1.13.0"`
+- `torch = ">=2.6.0"`
+- `torch-geometric = ">=2.6.1"`
+- `tqdm = ">=4.67.1"`
+- `xgboost = ">=3.0.0"`
 
 ### Install via pip
 
