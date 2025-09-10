@@ -189,6 +189,7 @@ For questions or collaborations, feel free to reach out:
 
 - **Author**: Sokolov Anton  
 - **Email**: antonsokol0077@gmail.com
+- **Telegram**: @opL1do
 - **GitHub**: [antonsokol57](https://github.com/antonsokol57
 )
 
