@@ -51,10 +51,18 @@ LPPH is a topological feature extraction method that:
 - `tqdm = ">=4.67.1"`
 - `xgboost = ">=3.0.0"`
 
-### Install via pip
+### Install via uv
 
 ```bash
-pip install numpy networkx scikit-learn xgboost torch torch_geometric phat-persistence persim tqdm
+# Install uv if you haven't already
+pip install uv
+
+# Clone the repository
+git clone https://github.com/antonsokol57/LPPH.git
+cd LPPH
+
+# Install dependencies using uv
+uv pip install -e .
 ```
 
 ---
