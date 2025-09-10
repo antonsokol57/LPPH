@@ -1,92 +1,176 @@
-## Local Persistent Path Homology (LPPH) for Link Prediction
+Local Persistent Path Homology (LPPH) for Directed Link Prediction
+This repository contains the official Python implementation of Local Persistent Path Homology (LPPH), a novel topological feature vector designed for directed link prediction in graphs. The method is introduced in the thesis:
 
-## Overview
-This repository implements Local Persistent Path Homology (PPH) methods for link prediction in directed graphs. The project contains two main components:
-1. **LPPHboost.py** - XGBoost classifier using LPPH features
-2. **modelsPPH.ipynb** - GNN-based models (DirGCN, DirSage, DirGAT) with LPPH feature integration
+Enhancing Machine Learning Algorithms on Directed Graphs Using Persistent Path Homology
+Sokolov Anton
+Supervisor: Cand. Sc. Viktor A. Zamaraev
 
-## Key Features
-- Computes persistent homology features for edges in directed graphs
-- Supports multiple GNN architectures with directional awareness
-- Compares performance with and without PPH features
-- Includes statistical significance testing
-- Works with various real-world graph datasets
+LPPH leverages Persistent Path Homology (PPH) to capture multi-scale directional topological features around graph edges. These features are transformed into fixed-dimensional vectors using persistence images, making them suitable for machine learning models.
 
-## Installation
-```bash
-git clone [your-repo-url]
-cd [your-repo-name]
-pip install -r requirements.txt
-Requirements
-Python 3.7+
+🧠 What is LPPH?
+LPPH is a topological feature extraction method that:
 
-PyTorch
+Constructs an edge-centric filtration around a target directed edge.
 
-NetworkX
+Computes persistent path homology to track the evolution of directed paths and cycles.
 
-XGBoost
+Converts persistence diagrams into persistence images—stable, vectorized representations.
+
+Can be used standalone with classifiers like XGBoost or integrated with GNNs to enhance link prediction.
+
+✨ Key Features
+🧩 Direction-Aware: Captures asymmetric connectivity patterns in directed graphs.
+
+📐 Multi-Scale: Extracts features at different filtration depths (e.g., 5, 9, 13, 17).
+
+🔬 Topologically Rich: Encodes cycles, paths, and connectivity structures up to a chosen homology dimension.
+
+⚡ Efficient: Parallelized computation using PHAT for boundary matrix reduction.
+
+🤖 Model-Agnostic: Works with XGBoost, GNNs, or other classifiers.
+
+📦 Installation
+Dependencies
+Python 3.8+
+
+numpy
+
+networkx
 
 scikit-learn
 
-node2vec
+xgboost
 
-Other standard scientific computing libraries
+torch (for GNN models)
 
-Usage
-PPHboost.py
+torch_geometric (for GNN layers)
+
+phat (for persistent homology computation)
+
+persim (for persistence images)
+
+tqdm
+
+Install via pip
 bash
-python PPHboost.py
-modelsPPH.ipynb
-Open the Jupyter notebook and run cells sequentially:
+pip install numpy networkx scikit-learn xgboost torch torch_geometric phat-persistence persim tqdm
+🚀 Usage
+1. Standalone XGBoost with LPPH Features
+python
+from LPPHboost import GraphLinkPredictor
+
+predictor = GraphLinkPredictor(random_seed=0x57575757)
+auc_scores = predictor.train_and_evaluate(
+    dataset_name="caenorhabditis",
+    edge_depth=5,
+    dim=3,
+    n_trials=30
+)
+2. Integrating LPPH with Directed GNNs
+See modelsPPH.ipynb for full examples using:
+
+DirGCNConv
+
+DirSageConv
+
+DirGATConv
+
+Example snippet:
+
+python
+from features import compute_edge_features_parallel, ListDigraph
+from models import LinkPredictionModel
+
+# Compute LPPH features for edges
+edge_features = compute_edge_features_parallel(
+    graph, edges, max_depth=5, resolution=10, max_dim=3
+)
+
+# Use in a GNN model
+model = LinkPredictionModel(
+    type='dirGAT',
+    in_feats=in_dim,
+    gnn_hidden_size=hidden_dim,
+    edge_feature_use=True,
+    edge_emb_size=edge_feat_dim,
+    fc_hidden_size=128,
+    num_hidden_layers=2,
+    gnn_layers=2
+)
+📊 Datasets
+We evaluate on 11 real-world directed graphs:
+
+Dataset	Nodes	Edges	Domain
+Bison	26	314	Social
+Highschool	70	366	Social
+Caenorhabditis	297	4296	Biological
+Congress Vote	219	764	Organizational
+Florida Ecosystem Dry	128	2137	Ecological
+Japanese Macaques	62	1187	Social
+Little Rock Lake	183	2494	Ecological
+Physicians	241	1098	Organizational
+Figeys	2239	6452	Biological
+Stelzl	1706	6207	Biological
+Air Traffic Control	1226	2615	Transportation
+📈 Results
+LPPH improves link prediction performance:
+
+✅ Boosts dirGNNs in 10/11 datasets
+
+✅ Outperforms hybrid models in 8/11 datasets as a standalone XGBoost classifier
+
+✅ Competitive with state-of-the-art methods like SRTGCN and IRW/DRW
+
+Example AUC improvements:
+
+Dataset	dirGAT (no LPPH)	dirGAT + LPPH	LPPH + XGBoost
+Highschool	0.7224	0.8252	0.8689
+Air Traffic Control	0.7014	0.7430	0.8508
+Stelzl	0.7565	0.8878	0.9652
+🧪 How to Reproduce
+Clone the repo:
+
+bash
+git clone https://github.com/antonsoko157/LPPH.git
+cd LPPH
+Run the Jupyter notebook for GNN experiments:
 
 bash
 jupyter notebook modelsPPH.ipynb
-Code Structure
-text
-├── PPHboost.py              # XGBoost implementation with PPH features
-├── modelsPPH.ipynb          # GNN models with PPH integration
-├── features.py              # Feature computation utilities (imported)
-├── data/                    # Graph datasets
-└── README.md
-Key Improvements Made
-Modularization: Separated graph loading into reusable functions
+Use LPPHboost.py for XGBoost-based experiments.
 
-Configuration: Added central configuration management
+Datasets are included in data/ and data_final/ directories.
 
-Error Handling: Improved edge cases and weight validation
+📚 Citation
+If you use this code or the LPPH method, please cite:
 
-Documentation: Added comprehensive docstrings and comments
+bibtex
+@mastersthesis{anton2024lpph,
+  author = {Sokolov, Anton},
+  title = {Enhancing Machine Learning Algorithms on Directed Graphs Using Persistent Path Homology},
+  school = {University of Liverpool},
+  year = {2024},
+  supervisor = {Viktor A. Zamaraev}
+}
+🛠️ Code Structure
+LPPHboost.py: XGBoost classifier using LPPH features.
 
-Reproducibility: Enhanced seed management across experiments
+modelsPPH.ipynb: Jupyter notebook with GNN models and experiments.
 
-Results
-The implementation shows comparative performance between:
+features.py: Core functions for computing LPPH features.
 
-Traditional GNN approaches
+data/, data_final/: Dataset directories.
 
-GNN + PPH feature augmentation
+📮 Contact
+For questions or collaborations, feel free to reach out:
 
-XGBoost with PPH features
+Author: Sokolov Anton
 
-Statistical tests (paired t-tests) determine significance of performance differences.
+Email: [Your Email]
 
-Contributing
-Fork the repository
+GitHub: antonsoko157
 
-Create a feature branch
+📜 License
+This project is licensed under the MIT License. See LICENSE for details.
 
-Make your changes
-
-Add tests if applicable
-
-Submit a pull request
-
-Citation
-If you use this code in your research, please cite:
-[Your publication details here]
-
-License
-[Your chosen license]
-
-Contact
-[Your email/contact information]
+LPPH: Bridging topology and machine learning for better directed graph analysis.
