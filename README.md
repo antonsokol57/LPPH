@@ -1,4 +1,4 @@
-# # Local Persistent Path Homology (PPH) for Link Prediction
+## Local Persistent Path Homology (PPH) for Link Prediction
 
 ## Overview
 This repository implements Local Persistent Path Homology (PPH) methods for link prediction in directed graphs. The project contains two main components:
