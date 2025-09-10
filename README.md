@@ -175,21 +175,12 @@ Example AUC improvements:
 For questions or collaborations, feel free to reach out:
 
 - **Author**: Sokolov Anton  
-- **Email**: [Your Email]  
+- **Email**: antonsokol0077@gmail.com
 - **GitHub**: [antonsokol57](https://github.com/antonsokol57
 )
 
 ---
 
-## 📜 License
-
-This project is licensed under the MIT License. See `LICENSE` for details.
-
----
 
 **LPPH**: Bridging topology and machine learning for better directed graph analysis.
 
-📜 License
-This project is licensed under the MIT License. See LICENSE for details.
-
-LPPH: Bridging topology and machine learning for better directed graph analysis.
