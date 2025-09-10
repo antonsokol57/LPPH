@@ -161,22 +161,6 @@ Example AUC improvements:
 
 ---
 
-## 📚 Citation
-
-If you use this code or the LPPH method, please cite:
-
-```bibtex
-@mastersthesis{anton2024lpph,
-  author = {Sokolov, Anton},
-  title = {Enhancing Machine Learning Algorithms on Directed Graphs Using Persistent Path Homology},
-  school = {University of Liverpool},
-  year = {2024},
-  supervisor = {Viktor A. Zamaraev}
-}
-```
-
----
-
 ## 🛠️ Code Structure
 
 - `LPPHboost.py`: XGBoost classifier using LPPH features.
